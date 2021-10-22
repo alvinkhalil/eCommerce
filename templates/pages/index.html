@@ -38,13 +38,12 @@
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
                   {% for car in carousel  %}
-                    {% if car.is_show == False %}
+                    {% if car.is_show == False and car.is_show2 == False %}
                       
                     <div class="header-slider-item">
                         <img src="{{car.image.url}}" alt="Slider Image" />
                         <div class="header-slider-caption">
                             <p>{{car.title}}</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>İndi Al</a>
                         </div>
                     </div>
                     {% endif %}
@@ -139,50 +138,21 @@
 <div class="category">
     <div class="container-fluid">
         <div class="row">
+            {% for car in carousel %}
+            {% if car.is_show2 == True %}
+              
             <div class="col-md-3">
                 <div class="category-item ch-400">
-                    <img src="img/category-3.jpg" />
+                    <img src="{{car.image.url}}" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>{{car.title}}</p>
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="category-item ch-250">
-                    <img src="img/category-4.jpg" />
-                    <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
-                    </a>
-                </div>
-                <div class="category-item ch-150">
-                    <img src="img/category-5.jpg" />
-                    <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="category-item ch-150">
-                    <img src="img/category-6.jpg" />
-                    <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
-                    </a>
-                </div>
-                <div class="category-item ch-250">
-                    <img src="img/category-7.jpg" />
-                    <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="category-item ch-400">
-                    <img src="img/category-8.jpg" />
-                    <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
-                    </a>
-                </div>
-            </div>
+            {% endif %}
+
+            {% endfor %}
+
         </div>
     </div>
 </div>
@@ -529,14 +499,16 @@
 <div class="review">
     <div class="container-fluid">
         <div class="row align-items-center review-slider normal-slider">
+            {% for comment in comment_car %}
+              
             <div class="col-md-6">
                 <div class="review-slider-item">
                     <div class="review-img">
-                        <img src="img/review-1.jpg" alt="Image">
+                        <img src="{{comment.image.url}}" alt="Image">
                     </div>
                     <div class="review-text">
-                        <h2>Customer Name</h2>
-                        <h3>Profession</h3>
+                        <h2>{{comment.name}}</h2>
+                        <h3>{{comment.job}}</h3>
                         <div class="ratting">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -545,53 +517,13 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
+                            {{comment.message}}
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="review-slider-item">
-                    <div class="review-img">
-                        <img src="img/review-2.jpg" alt="Image">
-                    </div>
-                    <div class="review-text">
-                        <h2>Customer Name</h2>
-                        <h3>Profession</h3>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="review-slider-item">
-                    <div class="review-img">
-                        <img src="img/review-3.jpg" alt="Image">
-                    </div>
-                    <div class="review-text">
-                        <h2>Customer Name</h2>
-                        <h3>Profession</h3>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
     </div>
 </div>

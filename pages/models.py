@@ -71,6 +71,7 @@ class Carousel(models.Model):
     image = models.ImageField(upload_to = "images/carousel/",verbose_name='Şəkil')
     status = models.CharField(choices=STATUS2, max_length=100,default="passive")
     is_show = models.BooleanField(verbose_name="Yalnız sağda göstərilsin")
+    is_show2 = models.BooleanField(verbose_name="Yalnız aşağıda göstərilsin")
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -79,3 +80,17 @@ class Carousel(models.Model):
     class Meta:
         verbose_name = "Örtük şəkili"
         verbose_name_plural = "Örtük şəkilləri"
+
+class CommentCarousel(models.Model):
+    name = models.CharField(max_length=100,verbose_name="Ad")
+    job = models.CharField(max_length=100,verbose_name="İş")
+    message = models.TextField(verbose_name="Şərh")
+    image = models.ImageField(upload_to = "images/commentcarousels/")
+    created_date = models.DateTimeField(auto_now_add=True,verbose_name="Yaradılma tarixi")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Rəy slayderi"
+        verbose_name_plural = "Rəy slayderləri"
