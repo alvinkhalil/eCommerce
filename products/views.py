@@ -1,15 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib import messages
 from products.models import Product_Item, Product_Category
 # Create your views here.
 def product_item(request,category_slug, product_slug,id):
 
     category = Product_Category.objects.get(slug = category_slug)
-    product =  Product_Item.objects.get(category = category, slug = product_slug, id = id)
+    try:
+        product =  Product_Item.objects.get(status = "active",category = category, slug = product_slug, id = id)
 
+
+        context = {
+            "category":category,
+            "product":product,
+        }
+        return render(request,"products/product_item.html",context)
+
+    except:
+        
+        messages.info(request,"Səhifə aktiv deyil.")
+        return redirect("pages:index")
+
+def products_all(request):
+    products = Product_Item.objects.filter(status = "active")
 
     context = {
-        "category":category,
-        "product":product,
+        "products":products,
     }
-    return render(request,"products/product_item.html",context)
+
+    return render(request,"products/products_list.html",context)

@@ -7,3 +7,5 @@ def locationmain(request):
         "location_main":location_main,
     }   
     return context
+
+
