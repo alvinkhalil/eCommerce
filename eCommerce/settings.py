@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
-    'ckeditor'
+    'products',
+    'ckeditor',
+    
 ]
 
 MIDDLEWARE = [
@@ -65,7 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'pages.context_processors.locationmain'
+                'pages.context_processors.locationmain',
+                'products.context_processors.categories',
             ],
         },
     },
