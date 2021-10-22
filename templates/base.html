@@ -4,7 +4,25 @@
 {% include "includes/head.html" %}
 </head>
 <body>
+    {% if messages %}
+<ul class="messages">
+{% for message in messages %}
+
+    {% if message.tags == "info" %}
+     
+    <li class="alert alert - danger">{{ message }}</li>
+
+    {% else %}
+    <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+
+    {% endif %}
+
+{% endfor %}
+</ul>
+{% endif %}
 {% include "includes/navbar.html" %}
+
+
 
     {% block body %}
       

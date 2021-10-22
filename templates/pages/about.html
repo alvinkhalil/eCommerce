@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+  
+  <!-- Breadcrumb Start -->
+  <div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'pages:index' %}">Əsas səhifə</a></li>
+            <li class="breadcrumb-item active">Haqqımızda</li>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Contact Start -->
+<div class="about">
+    <div class="container-fluid">
+        <div class="row">
+       <h1>Şirkət haqqında</h1>
+            <hr>
+        </div>
+
+            {{about.text|safe}}
+        
+    </div>
+</div>
+<!-- Contact End -->
+
+
+{% endblock body %}
