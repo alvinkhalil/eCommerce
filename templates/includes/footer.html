@@ -16,7 +16,7 @@
                 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Follow Us</h2>
+                        <h2>Bizi izlə</h2>
                         <div class="contact-info">
                             <div class="social">
                                 <a href="{{location_main.twitter}}"><i class="fab fa-twitter"></i></a>
@@ -31,9 +31,9 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Company Info</h2>
+                        <h2>Şirkət haqqında</h2>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="{% url 'pages:about' %}">Haqqımızda</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Terms & Condition</a></li>
                         </ul>
@@ -42,7 +42,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Purchase Info</h2>
+                        <h2>Ödəniş haqqında</h2>
                         <ul>
                             <li><a href="#">Pyament Policy</a></li>
                             <li><a href="#">Shipping Policy</a></li>
@@ -55,13 +55,13 @@
             <div class="row payment align-items-center">
                 <div class="col-md-6">
                     <div class="payment-method">
-                        <h2>We Accept:</h2>
+                        <h2>Biz qəbul edirik:</h2>
                         <img src="{% static 'img/payment-method.png' %}" alt="Payment Method" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="payment-security">
-                        <h2>Secured By:</h2>
+                        <h2>Qorunur:</h2>
                         <img src="{% static 'img/godaddy.svg' %}" alt="Payment Security" />
                         <img src="{% static 'img/norton.svg' %}" alt="Payment Security" />
                         <img src="{% static 'img/ssl.svg' %}" alt="Payment Security" />

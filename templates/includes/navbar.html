@@ -5,11 +5,11 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <i class="fa fa-envelope"></i>
-                        support@email.com
+                        {{location_main.email}}
                     </div>
                     <div class="col-sm-6">
                         <i class="fa fa-phone-alt"></i>
-                        +012-345-6789
+                        {{location_main.phone}}
                     </div>
                 </div>
             </div>
@@ -27,27 +27,40 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="product-list.html" class="nav-item nav-link">Products</a>
-                            <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-                            <a href="cart.html" class="nav-item nav-link">Cart</a>
-                            <a href="checkout.html" class="nav-item nav-link">Checkout</a>
-                            <a href="my-account.html" class="nav-item nav-link">My Account</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
-                                <div class="dropdown-menu">
-                                    <a href="wishlist.html" class="dropdown-item">Wishlist</a>
-                                    <a href="login.html" class="dropdown-item">Login & Register</a>
-                                    <a href="contact.html" class="dropdown-item">Contact Us</a>
-                                </div>
-                            </div>
+                            {% if request.path == "/" %}
+                            <a class="nav-item nav-link active">Əsas səhifə</a>
+
+                            {% else %}
+                            <a href="{% url 'pages:index' %}" class="nav-item nav-link ">Əsas səhifə</a>
+
+                            {% endif %}
+
+                            <a href="product-list.html" class="nav-item nav-link">Məhsullar</a>
+                            <a href="my-account.html" class="nav-item nav-link">Hesabım</a>
+                            <a href="wishlist.html" class="nav-item nav-link">Yadda saxlanılanlar</a>
+                            
+                            {% if "aboutus" in request.path %}
+                            <a  class="nav-item nav-link active">Haqqımızda </a>
+
+                            {% else %}
+                            <a href="{% url 'pages:about' %}" class="nav-item nav-link">Haqqımızda </a>
+
+                            {% endif %}
+
+                            {% if "contactus" in request.path %}
+                            <a  class="nav-item nav-link active">Bizimlə Əlaqə</a>
+
+                            {% else %}
+                            <a href="{% url 'pages:contactus' %}" class="nav-item nav-link">Bizimlə Əlaqə</a>
+
+                            {% endif %}
                         </div>
                         <div class="navbar-nav ml-auto">
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hesab</a>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Login</a>
-                                    <a href="#" class="dropdown-item">Register</a>
+                                    <a href="#" class="dropdown-item">Giriş</a>
+                                    <a href="#" class="dropdown-item">Qeydiyyat</a>
                                 </div>
                             </div>
                         </div>
@@ -62,14 +75,14 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{% url 'pages:index' %}">
                                 <img src="{% static 'img/logo.png' %}" alt="Logo">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <input type="text" placeholder="Search">
+                            <input type="text" placeholder="Axtarış">
                             <button><i class="fa fa-search"></i></button>
                         </div>
                     </div>

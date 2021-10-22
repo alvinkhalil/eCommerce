@@ -1,11 +1,15 @@
 from django.shortcuts import redirect, render
-from pages.models import AboutUs, ContactUsModel, LocationModel
+from pages.models import AboutUs, Carousel, ContactUsModel, LocationModel
 from django.contrib import messages
 
 # Create your views here.
 def index(request):
+    carousel = Carousel.objects.filter(status = "active")
+    context = {
+        "carousel":carousel,
+    }
 
-    return render(request,"pages/index.html")
+    return render(request,"pages/index.html",context)
 
 def contactus(request): 
 

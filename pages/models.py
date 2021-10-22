@@ -65,3 +65,17 @@ class AboutUs(models.Model):
     class Meta:
         verbose_name = 'Haqqımızda'
         verbose_name_plural = "Haqqımızda"
+
+class Carousel(models.Model):
+    title = models.CharField(max_length=100,verbose_name="Başlıq")
+    image = models.ImageField(upload_to = "images/carousel/",verbose_name='Şəkil')
+    status = models.CharField(choices=STATUS2, max_length=100,default="passive")
+    is_show = models.BooleanField(verbose_name="Yalnız sağda göstərilsin")
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Örtük şəkili"
+        verbose_name_plural = "Örtük şəkilləri"

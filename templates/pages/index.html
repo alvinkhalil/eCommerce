@@ -37,43 +37,37 @@
             </div>
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
+                  {% for car in carousel  %}
+                    {% if car.is_show == False %}
+                      
                     <div class="header-slider-item">
-                        <img src="{% static 'img/slider-1.jpg' %}" alt="Slider Image" />
+                        <img src="{{car.image.url}}" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>{{car.title}}</p>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>İndi Al</a>
                         </div>
                     </div>
-                    <div class="header-slider-item">
-                        <img src="{% static 'img/slider-2.jpg' %}" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="header-slider-item">
-                        <img src="{% static 'img/slider-3.jpg' %}" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                        </div>
-                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="header-img">
+                    {% for car in carousel  %}
+                      {% if car.is_show == True %}
+                        
                     <div class="img-item">
-                        <img src="{% static 'img/category-1.jpg' %}" />
+                        <img src="{{car.image.url}}" />
                         <a class="img-text" href="">
-                            <p>Some text goes here that describes the image</p>
+                            <p>{{car.title}}</p>
                         </a>
                     </div>
-                    <div class="img-item">
-                        <img src="{% static 'img/category-2.jpg' %}" />
-                        <a class="img-text" href="">
-                            <p>Some text goes here that describes the image</p>
-                        </a>
-                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
@@ -103,36 +97,36 @@
             <div class="col-lg-3 col-md-6 feature-col">
                 <div class="feature-content">
                     <i class="fab fa-cc-mastercard"></i>
-                    <h2>Secure Payment</h2>
+                    <h2>Təhlükəsiz Ödəniş</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur elit
+                        Ödəniş sistemi
                     </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 feature-col">
                 <div class="feature-content">
                     <i class="fa fa-truck"></i>
-                    <h2>Worldwide Delivery</h2>
+                    <h2>Ölkənin istənilən yerinə çatdırılma.</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur elit
+                        Bütün bölgələrə çatdırılma.
                     </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 feature-col">
                 <div class="feature-content">
                     <i class="fa fa-sync-alt"></i>
-                    <h2>90 Days Return</h2>
+                    <h2>90 Gün Ərzində Geri Qaytarma</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur elit
+                        Aldığınız istənilən məhsulu 90 gün ərizində geri qaytara bilərsiniz.
                     </p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 feature-col">
                 <div class="feature-content">
                     <i class="fa fa-comments"></i>
-                    <h2>24/7 Support</h2>
+                    <h2>24/7 Xidmət</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur elit
+                        Müştərilərimiz üçün 24/7 xidmət göstəririk.
                     </p>
                 </div>
             </div>
@@ -199,10 +193,10 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h1>call us for any queries</h1>
+                <h1>İstənilən sual üçün zəng et</h1>
             </div>
             <div class="col-md-6">
-                <a href="tel:0123456789">+012-345-6789</a>
+                <a>{{location_main.phone}}</a>
             </div>
         </div>
     </div>
@@ -366,12 +360,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <h1>Subscribe Our Newsletter</h1>
+                <h1>Xəbərlər üçün abunə ol</h1>
             </div>
             <div class="col-md-6">
                 <div class="form">
                     <input type="email" value="Your email here">
-                    <button>Submit</button>
+                    <button>Göndər</button>
                 </div>
             </div>
         </div>
@@ -383,7 +377,7 @@
 <div class="recent-product product">
     <div class="container-fluid">
         <div class="section-header">
-            <h1>Recent Product</h1>
+            <h1>Son məhsullar</h1>
         </div>
         <div class="row align-items-center product-slider product-slider-4">
             <div class="col-lg-3">
