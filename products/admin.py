@@ -11,7 +11,7 @@ class ProductItemAdmin(admin.ModelAdmin):
     def icon(self,object):
         return format_html("<img src = '{}' height = 50".format(object.image1.url))
     list_display = ["id","name","icon","category","price","stock","status","created_date"]
-    list_editable = ["status"]
+    list_editable = ["status","stock"]
     list_filter = ["status","created_date","category","stock","price"]
     serach_fields = ["name","category","decsription"]
     list_display_links = ["name"]

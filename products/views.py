@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from products.models import Product_Item, Product_Category
+from django.core.paginator import Paginator
+
 # Create your views here.
 def product_item(request,category_slug, product_slug,id):
 
@@ -22,9 +24,28 @@ def product_item(request,category_slug, product_slug,id):
 
 def products_all(request):
     products = Product_Item.objects.filter(status = "active")
+    paginator = Paginator(products,5)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
 
     context = {
-        "products":products,
+        "products":page_obj,
     }
+    return render(request,"products/products_list.html",context)
 
+def categories_products(request,category_slug):
+    category = Product_Category.objects.get(slug = category_slug)
+    products = Product_Item.objects.filter(category = category, status = "active")
+    paginator = Paginator(products,5)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+
+    context = {
+        "products":page_obj,
+
+    }
     return render(request,"products/products_list.html",context)

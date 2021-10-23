@@ -1,14 +1,16 @@
 from django.shortcuts import redirect, render
 from pages.models import AboutUs, Carousel, CommentCarousel, ContactUsModel, LocationModel
 from django.contrib import messages
-
+from products.models import Product_Item
 # Create your views here.
 def index(request):
     carousel = Carousel.objects.filter(status = "active")
     comment_car = CommentCarousel.objects.all()
+    last_products = Product_Item.objects.filter(status = "active")[:6]
     context = {
         "carousel":carousel,
         "comment_car":comment_car,
+        "last_products":last_products,
     }
 
     return render(request,"pages/index.html",context)
