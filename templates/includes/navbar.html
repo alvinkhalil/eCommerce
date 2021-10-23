@@ -82,8 +82,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <input type="text" placeholder="Axtarış">
-                            <button><i class="fa fa-search"></i></button>
+                            <form action="{% url 'products:search' %}" method="GET">
+                                {% csrf_token %}
+                                <input type="text" name="keyword" placeholder="Axtarış">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+
+                            </form>
                         </div>
                     </div>
                     <div class="col-md-3">

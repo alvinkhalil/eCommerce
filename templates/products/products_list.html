@@ -21,10 +21,13 @@
                         <div class="product-view-top">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="product-search">
-                                        <input type="email" value="Search">
-                                        <button><i class="fa fa-search"></i></button>
-                                    </div>
+                                    <form action="{% url 'products:search' %}" method="GET">
+                                        {% csrf_token %}
+                                        <div class="product-search">
+                                        <input name="keyword" placeholder="Axtarış">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="product-short">

@@ -73,3 +73,22 @@ def tag_products(request,tag):
     return render(request,"products/products_list.html",context)
 
 
+def search(request):
+
+    keyword = request.GET["keyword"]
+
+    products = Product_Item.objects.filter(status = "active", description__contains = keyword)
+    tags = Tag.objects.all()
+
+    paginator = Paginator(products,5)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        "products":page_obj,
+        'tags':tags,
+    }
+
+    return render(request,"products/products_list.html",context)
+

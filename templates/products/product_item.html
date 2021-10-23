@@ -22,16 +22,32 @@
                           <div class="col-md-5">
                               <div class="product-slider-single normal-slider">
                                   <img src="{{product.image1.url}}" alt="Product Image">
+                                  {% if product.image2 %}
                                   <img src="{{product.image2.url}}" alt="Product Image">
+                                  {% endif %}
+                                  {% if product.image3 %}
                                   <img src="{{product.image3.url}}" alt="Product Image">
+                                  {% endif %}
+                                  {% if product.image4 %}
                                   <img src="{{product.image4.url}}" alt="Product Image">
+                                  {% endif %}
                 
                               </div>
                               <div class="product-slider-single-nav normal-slider">
                                   <div class="slider-nav-img"><img src="{{product.image1.url}}" alt="Product Image"></div>
+
+                                  {% if product.image2 %}
                                   <div class="slider-nav-img"><img src="{{product.image2.url}}" alt="Product Image"></div>
+                                  {% endif %}
+
+                                  {% if product.image3 %}
                                   <div class="slider-nav-img"><img src="{{product.image3.url}}" alt="Product Image"></div>
-                                  <div class="slider-nav-img"><img src="{{product.image4.url}}" alt="Product Image"></div>
+                                  {% endif %}
+
+                                  {% if product.image4 %}
+                                  <div class="slider-nav-img"><img src="{{product.image4.url}}" alt="Product Image"></div>                                    
+                                  {% endif %}
+
           
                               </div>
                           </div>
