@@ -192,19 +192,13 @@
                 </div>
             
                 <div class="sidebar-widget tag">
-                    <h2 class="title">Tags Cloud</h2>
-                    <a href="#">Lorem ipsum</a>
-                    <a href="#">Vivamus</a>
-                    <a href="#">Phasellus</a>
-                    <a href="#">pulvinar</a>
-                    <a href="#">Curabitur</a>
-                    <a href="#">Fusce</a>
-                    <a href="#">Sem quis</a>
-                    <a href="#">Mollis metus</a>
-                    <a href="#">Sit amet</a>
-                    <a href="#">Vel posuere</a>
-                    <a href="#">orci luctus</a>
-                    <a href="#">Nam lorem</a>
+                    <h2 class="title">Həştəqlər</h2>
+                    {% for tag in tags  %}
+
+                        <a href="{% url 'products:tag_products' tag %}">{{tag}}</a>
+
+                    {% endfor %}
+
                 </div>
             </div>
             <!-- Side Bar End -->

@@ -2,6 +2,8 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from django.db.models.deletion import CASCADE
 from pages.models import STATUS2
+from taggit.managers import TaggableManager
+
 # Create your models here.
 size = (
     ("color_s","S"),
@@ -61,6 +63,7 @@ class Product_Item(models.Model):
     image5 = models.ImageField(upload_to = "images/products/",blank=True, null=True,verbose_name="Şəkil")
     status = models.CharField(max_length=100,choices=STATUS2,default = "passive")
     slug = models.SlugField(blank=True, null=True)
+    tags = TaggableManager()
 
     created_date = models.DateTimeField(auto_now_add=True,verbose_name="Əlavə olunma tarixi")
     
