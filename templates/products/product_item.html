@@ -119,7 +119,9 @@
                                       </div> 
                                   </div>
                                   <div class="action">
-                                      <a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Səbətə əlavə et</a>
+                                      <a class="btn" href="{% url 'card:add_to_card' product.slug %}"><i class="fa fa-shopping-cart"></i>Səbətə əlavə et</a>
+                                      <a class="btn btn-danger" href="{% url 'card:remove_from_card' product.slug %}"><i class="fa fa-shopping-cart"></i>Səbətdən çıxart</a>
+
                                       <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>indi Al</a>
                                   </div>
                               </div>
